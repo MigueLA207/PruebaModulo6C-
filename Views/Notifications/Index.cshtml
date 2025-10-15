@@ -1,0 +1,33 @@
+@model IEnumerable<PruebaMiguelArias.Models.Notification>
+
+<h1 class="text-center">Registro de Correos enviados</h1>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Id de la cita</th>
+                        <th>Fecha de envio</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Doctor in Model)
+                    {
+                        <tr>
+                            <td>@Doctor.Id</td>
+                            <td>@Doctor.AppointmentId</td>
+                            <td>@Doctor.NotificationDate.ToString("G")</td>
+                            <td>@Doctor.sent</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

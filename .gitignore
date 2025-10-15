@@ -1,0 +1,45 @@
+# Compilación
+bin/
+obj/
+out/
+Debug/
+Release/
+*.exe
+*.dll
+*.log
+
+# Archivos de usuario de Visual Studio / Rider / VSCode
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Configuración del entorno local
+.env
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.Local.json
+appsettings.json
+
+# Dependencias y paquetes
+*.nupkg
+packages/
+node_modules/
+
+# Migraciones (opcional)
+Migrations/
+migrations/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Publicaciones
+publish/
+wwwroot/

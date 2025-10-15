@@ -1,0 +1,43 @@
+@model PruebaMiguelArias.Models.Patient
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-5 mt-4 border p-3 rounded bg-white shadow-lg">
+            <h2 class="text-center mb-4">Actualizar paciente</h2>
+            <form asp-controller="Patients" asp-action="Edit" method="post" class="needs-validation" novalidate>
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                <input asp-for="Id" hidden="hidden" />
+
+                <div class="mb-3">
+                    <label asp-for="Document" class="form-label">Documento</label>
+                    <input asp-for="Document" type="number" class="form-control" id="Document" required>
+                    <span asp-validation-for="Document" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Nombre Completo</label>
+                    <input asp-for="FullName" class="form-control" id="FullName"  required>
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" id="Email"  required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Phone" class="form-label">Telefono</label>
+                    <input asp-for="Phone" type="tel" class="form-control" id="Phone" required>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
