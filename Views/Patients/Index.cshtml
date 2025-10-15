@@ -34,6 +34,8 @@
                         <td>
                             <div class="d-flex flex-column flex-sm-row gap-2">
                                 <a asp-controller="Patients" asp-action="Edit" asp-route-id="@Patient.Id" class="btn btn-warning btn-sm">Editar</a>
+                                <a asp-controller="Patients" asp-action="Delete" asp-route-id="@Patient.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                                
                             </div>
                         </td>
                     </tr>

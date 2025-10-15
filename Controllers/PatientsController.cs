@@ -104,6 +104,47 @@ public class PatientsController : Controller
         }
         return View(patient);
     }
+
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var patient = _context.Patients.Find(id);
+        if (patient == null)
+        {
+            TempData["message"] = "El paciente a eliminar no existe.";
+            TempData["alertType"] = "danger";
+            return RedirectToAction(nameof(Index));
+        }
+        return View(patient);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var patient = _context.Patients.Find(id);
+        if (patient == null)
+        {
+            TempData["message"] = "El paciente a eliminar no existe.";
+            TempData["alertType"] = "danger";
+            return RedirectToAction(nameof(Index));
+        }
+        
+        try
+        {
+            _context.Patients.Remove(patient);
+            _context.SaveChanges();
+            TempData["message"] = "Paciente eliminado exitosamente.";
+            TempData["alertType"] = "success";
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al eliminar el paciente: {ex.Message}");
+            TempData["message"] = "Ocurrió un error inesperado al intentar eliminar el paciente.";
+            TempData["alertType"] = "danger";
+        }
+        return RedirectToAction(nameof(Index));
+    }
 }
 
 

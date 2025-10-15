@@ -34,12 +34,12 @@ El proyecto sigue el patrón MVC (Modelo-Vista-Controlador):
 
 1. **Clonar el repositorio**
 	```bash
-	git clone <URL_DEL_REPOSITORIO>
+	git clone https://github.com/MigueLA207/PruebaModulo6C-.git
 	cd PruebaMiguelArias
 	```
 
 2. **Configurar la base de datos (opcional)**
-	- Edita `appsettings.json` para agregar la cadena de conexión a MySQL/PostgreSQL si usas persistencia avanzada.
+	- Edita `appsettings.json` para agregar la cadena de conexión a MySQL si usas persistencia avanzada.
 
 3. **Restaurar dependencias**
 	```bash
@@ -53,11 +53,11 @@ El proyecto sigue el patrón MVC (Modelo-Vista-Controlador):
 
 5. **Ejecutar la aplicación**
 	```bash
-	dotnet run
+	dotnet run o dotnet watch 
 	```
 
 6. **Abrir en el navegador**
-	Accede a `http://localhost:5000` o el puerto indicado en la consola.
+	Accede a `http://localhost:5123` o el puerto indicado en la consola.
 
 
 ## 📝 Configuración adicional

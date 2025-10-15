@@ -58,4 +58,14 @@ public class DoctorService : IDoctorService
     {
         return _context.Doctors.Select(d => d.Specialty).Distinct().ToList();
     }
+    
+    public void DeleteDoctor(int id)
+    {
+        var doctor = _context.Doctors.Find(id);
+        if (doctor != null)
+        {
+            _context.Doctors.Remove(doctor);
+            _context.SaveChanges();
+        }
+    }
 }

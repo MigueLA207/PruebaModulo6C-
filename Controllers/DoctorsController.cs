@@ -127,9 +127,48 @@ public class DoctorsController : Controller
             Console.WriteLine($"Error al actualizar el doctor: {ex.Message}");
             ModelState.AddModelError(string.Empty, "Ocurrió un error inesperado al intentar actualizar el médico.");
         }
-
-        // Aquí retornamos la vista con el modelo y errores si algo falló
+        
         return View(doctor);
+    }
+    
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var doctor = _doctorService.GetDoctorById(id);
+        if (doctor == null)
+        {
+            TempData["message"] = "El doctor a eliminar no existe.";
+            TempData["alertType"] = "danger";
+            return RedirectToAction(nameof(Index));
+        }
+        return View(doctor);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var doctor = _doctorService.GetDoctorById(id);
+        if (doctor == null)
+        {
+            TempData["message"] = "El doctor a eliminar no existe.";
+            TempData["alertType"] = "danger";
+            return RedirectToAction(nameof(Index));
+        }
+        
+        try
+        {
+            _doctorService.DeleteDoctor(id);
+            TempData["message"] = "Doctor eliminado exitosamente.";
+            TempData["alertType"] = "success";
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al eliminar el doctor: {ex.Message}");
+            TempData["message"] = "Ocurrió un error inesperado al intentar eliminar el médico.";
+            TempData["alertType"] = "danger";
+        }
+        return RedirectToAction(nameof(Index));
     }
     
 }

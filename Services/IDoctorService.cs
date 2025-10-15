@@ -12,6 +12,7 @@ public interface IDoctorService
     void CreateDoctor(Doctor doctor);
     void UpdateDoctor(int id, Doctor doctor);
     IEnumerable<string> GetAllSpecialties();
+    void DeleteDoctor(int id);
     
     
 }

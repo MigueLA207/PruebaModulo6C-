@@ -273,10 +273,5 @@ public async Task<IActionResult> Create(Appointment appointment)
         ViewBag.Title = $"Citas del doctor: {doctorName}";
         return View("Index", appointments); 
     }
-
-
-
-
-    
     
 }

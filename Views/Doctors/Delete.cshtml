@@ -1,0 +1,23 @@
+@model PruebaMiguelArias.Models.Doctor
+
+<h2 class="mt-5">Eliminar Doctor</h2>
+
+<div class="alert alert-warning">
+    <p>¿Estás seguro de que quieres eliminar este Doctor?</p>
+</div>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>ID:</strong> @Model.Id</li>
+    <li class="list-group-item"><strong>Documento:</strong> @Model.Document</li>
+    <li class="list-group-item"><strong>Nombre completo:</strong> @Model.FullName</li>
+    <li class="list-group-item"><strong>Telefono:</strong> @Model.Phone</li>
+    <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+    <li class="list-group-item"><strong>Especialidad:</strong> @Model.Specialty</li>
+</ul>
+
+<form asp-controller="Doctors" asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-controller="Doctors" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
